@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    # TODO: укажите нужные permissions для GITHUB_TOKEN
+    permissions:
+      укажите_название: read
+      укажите_название: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      # TODO: укажите нужные значения для action setup-java
+      - name: Setup Java
+        uses: укажите_значение
+        with:
+          distribution: укажите_значение
+          java-version: укажите_значение
+      - name: Build & Deploy
+        run:
+          mvn -B deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
